@@ -131,12 +131,10 @@ uppercase:
     addi $a0, $a0, 32               #make lowercase
     li $v0, 11
     syscall                         #print lowercase
-    sb $a0, 0($s0)                 #change the input string byte to be the new case
+    sb $a0, 0($s0)                  #change the input string byte to be the new case
     la $a0, newline
     li $v0, 5
     syscall                         #print newline
-    move $a0, $t0
-    li $v0, 11
     jal ConventionCheck             #call ConventionCheck
     j nextIteration                 #move to nextIteration
 lowercase:
@@ -150,12 +148,10 @@ lowercase:
     addi $a0, $a0, -32              #make uppercase
     li $v0, 11
     syscall                         #print uppercase
-    sb $a0, 0($s0)                 #change the input string byte to be the new case
+    sb $a0, 0($s0)                  #change the input string byte to be the new case
     la $a0, newline
     li $v0, 5
     syscall                         #print newline
-    move $a0, $t0
-    li $v0, 11
     jal ConventionCheck             #call ConventionCheck
     #move to nextIteration
 nextIteration:
